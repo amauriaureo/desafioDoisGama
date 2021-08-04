@@ -1095,5 +1095,20 @@ var listaProdutos = [
 
 //RESOLUÇÃO
 //1.
-const total = listaProdutos.reduce((total, numero) => total + numero.qtdEstoque, 0);
-console.log("1. Quantidade total de itens em estoque: " + total)
+const total = listaProdutos
+    .reduce((total, numero) => total + numero.qtdEstoque, 0);
+    console.log("1. Quantidade total de itens em estoque: " + total)
+
+
+//2.
+const featuredItems = listaProdutos
+  .filter(p => p.emDestaque === "sim") // inline
+  .map(p => p.qtdEstoque);
+
+// nessa passo ele soma cada indice dentro de featuredItems
+var featured = 0;
+for(var i=0; i < featuredItems.length; i++) {
+    featured+=featuredItems[i];
+}
+// console.log(featuredItems)
+console.log("2. Quantidade total de itens em destaque: " + featured)
