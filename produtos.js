@@ -1092,3 +1092,8 @@ var listaProdutos = [
         }
     }
 ]
+
+//RESOLUÇÃO
+//1.
+const total = listaProdutos.reduce((total, numero) => total + numero.qtdEstoque, 0);
+console.log("1. Quantidade total de itens em estoque: " + total)
