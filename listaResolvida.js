@@ -1097,22 +1097,28 @@ var listaProdutos = [
 
 // Item 1
     console.log("01.")
-    const resultado = listaProdutos.reduce((resultado, number) => resultado + number.qtdEstoque, 0);
-    console.log(`Quantidade de itens em estoque: ${resultado};`);
+    const itensEmEstoque = listaProdutos.reduce((accumulator, currentValue) => accumulator + currentValue.qtdEstoque, 0);
+    console.log(`Quantidade de itens em estoque: ${itensEmEstoque};`);
 
 
 // Item 2
     console.log("02.")
-    let totalEmDestaque = listaProdutos.filter(listaProdutos => listaProdutos.emDestaque === "sim");
-    console.log(`Quantidade total de itens em destaque: ${totalEmDestaque.length};`);
+    let totalEmDestaque = listaProdutos.filter(value => value.emDestaque === "sim");
+    let estoqueDestaque = totalEmDestaque.map(value => value.qtdEstoque);
+    let dest = 0;
+    for(let i = 0; i < estoqueDestaque.length; i++) {
+        dest += estoqueDestaque[i];
+    }
+console.log(`Objetos com valor "sim" para a chave "emDestaque": ${totalEmDestaque.length};
+Quantidade total de itens em estoque que estão em destaque: ${dest} `);
 
 
 // Item 3
     console.log("03.")
-    let totalDisponivel = listaProdutos.filter(listaProdutos => listaProdutos.disponivel === "sim");
-    console.log(`Quantidade total de itens disponiveis: ${totalDisponivel.length};`); // caso deseje ver não apenas a quantidade total, mas também QUAIS itens e suas respectivas infos, apenas retirar o .length
-
-
+    let totalDisponivel = listaProdutos.filter(value => value.disponivel === "sim");
+  
+console.log(`Objetos com valor "sim" para a chave "disponivel": ${totalDisponivel.length};
+Quantidade total de itens em estoque que estão em disponiveis: ${itensEmEstoque} `);
 // Item 4
     console.log("04.")
     let itensDisponiveisEEmDestaque = 0;
@@ -1121,17 +1127,20 @@ var listaProdutos = [
             itensDisponiveisEEmDestaque += item.qtdEstoque
         }
     }
-    console.log(`Quantidade de itens disponiveis e em destaque: ${itensDisponiveisEEmDestaque}.`);
+    // console.log(`Quantidade de itens disponiveis e em destaque: ${totalEmDestaque.length}.`);
+
+    console.log(`Objetos com valor "sim" para as chaves "emDestaque" e "disponivel": ${totalEmDestaque.length};
+Quantidade total de itens em estoque que estão em destaque: ${itensDisponiveisEEmDestaque} `);
 
 
 // Item 5
     console.log("05.")
-    let emEstoque = listaProdutos.filter(listaProdutos => listaProdutos.qtdEstoque > 0);
-    const precoEstoque = emEstoque.map(produto => produto.preco * produto.qtdEstoque);
+    let emEstoque = listaProdutos.filter(value => value.qtdEstoque > 0);
+    const precoEstoque = emEstoque.map(value => value.preco * value.qtdEstoque);
         
     var inventario = 0;
         
-    for (var i = 0; i <precoEstoque.length; i++){
+    for (var i = 0; i < precoEstoque.length; i++){
         inventario += precoEstoque[i];
     };
 
@@ -1171,8 +1180,8 @@ ${prodMaisCaro}.`)
         }
     }
 
-    console.log(`Pertencente ao departamento de ${deptoItemMaisBarato}, com preço de ${valorItemMaisBarato.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })},
-    o produto mais barato da loja é: ${prodMaisBarato}.`)
+console.log(`Pertencente ao departamento de ${deptoItemMaisBarato}, com preço de ${valorItemMaisBarato.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })},
+o produto mais barato da loja é: ${prodMaisBarato}.`)
 
 
 
