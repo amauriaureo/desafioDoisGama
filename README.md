@@ -12,6 +12,10 @@ Depois de clonar o repositório em sua máquina, abra o único arquivo html e in
 
 ## Entregas minimas para o desafio:
 
+- [x] Link do GITHUB de 1 membro da equipe que contenha as resoluções dos exercícios
+
+- [x] Arquivo README.md no repositório contendo o nome dos integrantes da equipe
+
 - [x] **Semana 1** (06/08/2021):  *Exercícios de 1 a 10*
 
 - [ ] **Semana 2** (13/08/2021): *Exercícios de 11 a 15*
