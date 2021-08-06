@@ -7,6 +7,14 @@ Grupo formado por:
 * [Rony Lopes](https://github.com/RonyLopes/)
 * [Amauri](https://github.com/amauriaureo/) 
 
+<hr>
+
+## Entregas minimas para o desafio:
+
+- [x] **Semana 1** (06/08/2021):  *Exercícios de 1 a 10*
+
+- [ ] **Semana 2** (13/08/2021): *Exercícios de 11 a 15*
+
 
 ## Itens a serem resolvidos
 
@@ -40,11 +48,6 @@ Grupo formado por:
 
 15. Departamento menos valioso (similar ao anterior)
 
-## Entregas minimas para o desafio:
-
-- [x] **Semana 1** (06/08/2021):  *Exercícios de 1 a 10*
-
-- [ ] **Semana 2** (13/08/2021): *Exercícios de 11 a 15*
 
 
 
