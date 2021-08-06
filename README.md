@@ -49,7 +49,7 @@ Depois de clonar o repositório em sua máquina, abra o único arquivo html e in
 
 15. Departamento menos valioso (similar ao anterior)
 
-<h2 align="center"> [Aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1) você pode ler a descrição completa do desafio. </h2>
 
+Você pode ler a descrição completa do desafio [aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1).
 
 
