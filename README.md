@@ -50,6 +50,6 @@ Depois de clonar o repositório em sua máquina, abra o único arquivo html e in
 15. Departamento menos valioso (similar ao anterior)
 
 
-Você pode ler a descrição completa do desafio [aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1).
+Você encontra a descrição completa do desafio [aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1).
 
 
