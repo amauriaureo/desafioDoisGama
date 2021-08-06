@@ -42,9 +42,9 @@ Grupo formado por:
 
 ## Entregas minimas para o desafio:
 
-- [x] **Semana 1(06/08/2021):**  Exercícios de 1 a 10
+- [x] **Semana 1** *(06/08/2021):*  Exercícios de 1 a 10
 
-- [ ] **Semana 2(13/08/2021):** Exercícios de 11 a 15
+- [ ] **Semana 2** *(13/08/2021):* Exercícios de 11 a 15
 
 
 
