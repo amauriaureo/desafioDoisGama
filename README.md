@@ -1,13 +1,14 @@
 # Primeiro desafio em grupo - Grupo 4
 
 
-Repositório que contém o [desafio](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1) proposto pela [Gama Academy](https://gama.academy) como parte do Treinamento Dev Full-Stack. \
-Grupo formado por:
+Este repositório contém um desafio proposto pela [Gama Academy](https://gama.academy) como parte do Treinamento Dev Full-Stack, XP #38. \
+Integrantes do grupo 4:
 * [Cauê Francisco](https://github.com/cauefrancisco/)
 * [Rony Lopes](https://github.com/RonyLopes/)
 * [Amauri](https://github.com/amauriaureo/) 
 
 <hr>
+Depois de clonar o repositório em sua máquina, abra o único arquivo html e inspecione a página para encontrar as soluções em "console".
 
 ## Entregas minimas para o desafio:
 
@@ -48,6 +49,6 @@ Grupo formado por:
 
 15. Departamento menos valioso (similar ao anterior)
 
-
+[Aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1) você pode ler a descrição completa do desafio.
 
 
