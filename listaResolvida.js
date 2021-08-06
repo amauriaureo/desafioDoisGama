@@ -1096,46 +1096,129 @@ var listaProdutos = [
 // Resolução dos itens a serem resolvidos
 
 // Item 1
-
-// let resultado = 0;
-
-        const resultado = listaProdutos.reduce((resultado, number) => resultado + number.qtdEstoque, 0);
-        console.log(`1. Quantidade de itens em estoque: ${resultado};`);
+    console.log("01.")
+    const resultado = listaProdutos.reduce((resultado, number) => resultado + number.qtdEstoque, 0);
+    console.log(`Quantidade de itens em estoque: ${resultado};`);
 
 
 // Item 2
-    
-        let totalEmDestaque = listaProdutos.filter(listaProdutos => listaProdutos.emDestaque === "sim");
-        console.log(`2. Quantidade total de itens em destaque: ${totalEmDestaque.length};`);
+    console.log("02.")
+    let totalEmDestaque = listaProdutos.filter(listaProdutos => listaProdutos.emDestaque === "sim");
+    console.log(`Quantidade total de itens em destaque: ${totalEmDestaque.length};`);
 
 
 // Item 3
-
-        let totalDisponivel = listaProdutos.filter(listaProdutos => listaProdutos.disponivel === "sim");
-        console.log(`3. Quantidade total de itens disponiveis: ${totalDisponivel.length};`); // caso deseje ver não apenas a quantidade total, mas também QUAIS itens e suas respectivas infos, apenas retirar o .length
+    console.log("03.")
+    let totalDisponivel = listaProdutos.filter(listaProdutos => listaProdutos.disponivel === "sim");
+    console.log(`Quantidade total de itens disponiveis: ${totalDisponivel.length};`); // caso deseje ver não apenas a quantidade total, mas também QUAIS itens e suas respectivas infos, apenas retirar o .length
 
 
 // Item 4
-
-        let itensDisponiveisEEmDestaque = 0;
-        for(const item of listaProdutos){
-            if(item.disponivel === "sim" && item.emDestaque === "sim") {
-                itensDisponiveisEEmDestaque += item.qtdEstoque
-            }
+    console.log("04.")
+    let itensDisponiveisEEmDestaque = 0;
+    for(const item of listaProdutos){
+        if(item.disponivel === "sim" && item.emDestaque === "sim") {
+            itensDisponiveisEEmDestaque += item.qtdEstoque
         }
-        console.log(`4. Quantidade de itens disponiveis e em destaque: ${itensDisponiveisEEmDestaque}.`);
+    }
+    console.log(`Quantidade de itens disponiveis e em destaque: ${itensDisponiveisEEmDestaque}.`);
 
 
 // Item 5
+    console.log("05.")
+    let emEstoque = listaProdutos.filter(listaProdutos => listaProdutos.qtdEstoque > 0);
+    const precoEstoque = emEstoque.map(produto => produto.preco * produto.qtdEstoque);
+        
+    var inventario = 0;
+        
+    for (var i = 0; i <precoEstoque.length; i++){
+        inventario += precoEstoque[i];
+    };
 
-        let emEstoque = listaProdutos.filter(listaProdutos => listaProdutos.qtdEstoque > 0);
-        const precoEstoque = emEstoque.map(produto => produto.preco * produto.qtdEstoque);
+    console.log(`Valor total do inventário da empresa:  ${inventario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })},`);
         
-        var inventario = 0;
-        
-        for (var i = 0; i <precoEstoque.length; i++){
-            inventario += precoEstoque[i];
-        };
 
-        console.log(`5. Valor total do inventário da empresa: R$${inventario}`);
-        
+// Item 6  
+    console.log("06.")
+
+    let deptoItemMaisCaro;
+    let prodMaisCaro;
+    let valorItemMaisCaro = 0;
+
+    for(const prod of listaProdutos) {
+        if(prod.preco > valorItemMaisCaro) {
+            deptoItemMaisCaro = prod.departamento.nomeDepto;
+            prodMaisCaro = prod.descricao;
+            valorItemMaisCaro = prod.preco;
+        }
+    }
+console.log(`Pertencente ao departamento de ${deptoItemMaisCaro}, com preço de ${valorItemMaisCaro.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })},
+o produto mais caro da loja é:
+${prodMaisCaro}.`)
+
+// Item 7
+    console.log("07.")
+
+    let deptoItemMaisBarato;
+    let prodMaisBarato;
+    let valorItemMaisBarato = valorItemMaisCaro;
+
+    for(const prod of listaProdutos) {
+        if(prod.preco < valorItemMaisBarato) {
+            deptoItemMaisBarato = prod.departamento.nomeDepto;
+            prodMaisBarato = prod.descricao;
+            valorItemMaisBarato = prod.preco;
+        }
+    }
+
+    console.log(`Pertencente ao departamento de ${deptoItemMaisBarato}, com preço de ${valorItemMaisBarato.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })},
+    o produto mais barato da loja é: ${prodMaisBarato}.`)
+
+
+
+// Item 8
+    console.log("08.")
+
+    var maisValioso = 0
+
+    function produtoMaisValioso(){
+
+    listaProdutos.forEach((item) =>{
+        if (item.qtdEstoque > 0){
+            if (item.preco * item.qtdEstoque > maisValioso){
+                maisValioso = item.preco * item.qtdEstoque
+                lista = item
+            }
+        }
+    })
+
+    return console.log(`O item mais valioso é o ${lista.descricao} no valor total de ${maisValioso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
+}
+produtoMaisValioso();
+
+
+// Item 9
+console.log("09.")
+
+function produtoMenosValioso(menosValioso){
+    menosValioso = maisValioso;
+
+    listaProdutos.forEach((item) =>{
+        if (item.qtdEstoque > 0){
+            if (item.preco * item.qtdEstoque < menosValioso){
+                menosValioso = item.preco * item.qtdEstoque
+                lista = item
+            }
+        }
+    })
+
+    return console.log(`O item menos valioso é o ${lista.descricao} no valor total de ${menosValioso.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
+}
+produtoMenosValioso();
+
+// Item 10
+console.log("10.")
+
+let numeroTotalItens = listaProdutos.length;
+const ticketMedio = inventario / numeroTotalItens;
+console.log(`O valor do ticket médio é: ${(ticketMedio).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
