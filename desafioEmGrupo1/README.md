@@ -74,10 +74,10 @@ Pois bem, com esta estrutura, agora organizando os produtos em uma grande lista,
 
 ### ENTREGAS MÍNIMAS DO DESAFIO:
 
-[] Semana 1:
+- [x] Semana 1:
 1.1 Exercícios de 1 a 10
 
-[] Semana 2:
+- [ ] Semana 2:
 2.1 Exercícios de 11 a 15
 
 ### CHECKLIST SEMANAL PARA O DESAFIO

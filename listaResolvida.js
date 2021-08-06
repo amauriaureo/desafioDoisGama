@@ -344,7 +344,7 @@ var listaProdutos = [
         "emDestaque": "sim",
         "departamento": {
             "idDepto": 3,
-            "nomeDepto": "Acessorios"
+            "nomeDepto": "Eletronicos"
         }
     },
     {
@@ -1093,22 +1093,49 @@ var listaProdutos = [
     }
 ]
 
-//RESOLUÇÃO
-//1.
-const total = listaProdutos
-    .reduce((total, numero) => total + numero.qtdEstoque, 0);
-    console.log("1. Quantidade total de itens em estoque: " + total)
+// Resolução dos itens a serem resolvidos
+
+// Item 1
+
+// let resultado = 0;
+
+        const resultado = listaProdutos.reduce((resultado, number) => resultado + number.qtdEstoque, 0);
+        console.log(`1. Quantidade de itens em estoque: ${resultado};`);
 
 
-//2.
-const featuredItems = listaProdutos
-  .filter(p => p.emDestaque === "sim") // inline
-  .map(p => p.qtdEstoque);
+// Item 2
+    
+        let totalEmDestaque = listaProdutos.filter(listaProdutos => listaProdutos.emDestaque === "sim");
+        console.log(`2. Quantidade total de itens em destaque: ${totalEmDestaque.length};`);
 
-// nessa passo ele soma cada indice dentro de featuredItems
-var featured = 0;
-for(var i=0; i < featuredItems.length; i++) {
-    featured+=featuredItems[i];
-}
-// console.log(featuredItems)
-console.log("2. Quantidade total de itens em destaque: " + featured)
+
+// Item 3
+
+        let totalDisponivel = listaProdutos.filter(listaProdutos => listaProdutos.disponivel === "sim");
+        console.log(`3. Quantidade total de itens disponiveis: ${totalDisponivel.length};`); // caso deseje ver não apenas a quantidade total, mas também QUAIS itens e suas respectivas infos, apenas retirar o .length
+
+
+// Item 4
+
+        let itensDisponiveisEEmDestaque = 0;
+        for(const item of listaProdutos){
+            if(item.disponivel === "sim" && item.emDestaque === "sim") {
+                itensDisponiveisEEmDestaque += item.qtdEstoque
+            }
+        }
+        console.log(`4. Quantidade de itens disponiveis e em destaque: ${itensDisponiveisEEmDestaque}.`);
+
+
+// Item 5
+
+        let emEstoque = listaProdutos.filter(listaProdutos => listaProdutos.qtdEstoque > 0);
+        const precoEstoque = emEstoque.map(produto => produto.preco * produto.qtdEstoque);
+        
+        var inventario = 0;
+        
+        for (var i = 0; i <precoEstoque.length; i++){
+            inventario += precoEstoque[i];
+        };
+
+        console.log(`5. Valor total do inventário da empresa: R$${inventario}`);
+        
