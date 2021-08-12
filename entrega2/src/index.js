@@ -10,14 +10,10 @@ console.log(`Quantidade de itens em estoque: ${itensEmEstoque};`);
 // Item 2
 console.log("02.")
 let totalEmDestaque = listaProdutos.filter(value => value.emDestaque === "sim");
-let estoqueDestaque = totalEmDestaque.map(value => value.qtdEstoque);
-let dest = 0;
-for(let i = 0; i < estoqueDestaque.length; i++) {
-    dest += estoqueDestaque[i];
-}
+let dest = totalEmDestaque.reduce((sumOfParts, currentValue) => sumOfParts + currentValue.qtdEstoque, 0)
+
 console.log(`Objetos com valor "sim" para a chave "emDestaque": ${totalEmDestaque.length};
 Quantidade total de itens em estoque que estão em destaque: ${dest} `);
-
 
 // Item 3
 console.log("03.")
