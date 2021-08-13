@@ -8,7 +8,6 @@ Integrantes do grupo 4:
 * [Amauri](https://github.com/amauriaureo/) 
 
 <hr>
-Depois de clonar o repositório em sua máquina, abra o único arquivo html e inspecione a página para encontrar as soluções em "console".
 
 ## Entregas minimas para o desafio:
 
@@ -18,7 +17,7 @@ Depois de clonar o repositório em sua máquina, abra o único arquivo html e in
 
 - [x] **Semana 1** (06/08/2021):  *Exercícios de 1 a 10*
 
-- [ ] **Semana 2** (13/08/2021): *Exercícios de 11 a 15*
+- [x] **Semana 2** (13/08/2021): *Exercícios de 11 a 15*
 
 
 ## Itens a serem resolvidos
