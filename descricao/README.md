@@ -77,7 +77,7 @@ Pois bem, com esta estrutura, agora organizando os produtos em uma grande lista,
 - [x] Semana 1:
 1.1 Exercícios de 1 a 10
 
-- [ ] Semana 2:
+- [x] Semana 2:
 2.1 Exercícios de 11 a 15
 
 ### CHECKLIST SEMANAL PARA O DESAFIO
