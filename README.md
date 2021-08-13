@@ -53,6 +53,6 @@ Integrantes do grupo 4:
 15. Departamento menos valioso (similar ao anterior)
 
 
-Você encontra a descrição completa do desafio [aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/desafioEmGrupo1).
+Você encontra a descrição completa do desafio [aqui](https://github.com/amauriaureo/desafioDoisGama/tree/main/descricao).
 
 
