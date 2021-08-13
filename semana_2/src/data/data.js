@@ -344,7 +344,7 @@ var listaProdutos = [
         "emDestaque": "sim",
         "departamento": {
             "idDepto": 3,
-            "nomeDepto": "Eletronicos"
+            "nomeDepto": "Acessorios"
         }
     },
     {
@@ -1092,5 +1092,9 @@ var listaProdutos = [
         }
     }
 ]
+
+
+
+
 
 module.exports = listaProdutos;

@@ -3,6 +3,9 @@ const listaProdutos = require('./data/data')
 function convertToCurrency(value){
     return Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(value)
 }
+console.log("ENTREGAS DA PRIMEIRA SEMANA (exercícios: do 1 ao 10)")
+console.log("                             ")
+console.log("                             ")
 
 console.log("01.")
 const itensEmEstoque = listaProdutos.reduce((accumulator, currentValue) => accumulator + currentValue.qtdEstoque, 0);
@@ -20,7 +23,7 @@ console.log("03.")
 let totalDisponivel = listaProdutos.filter(value => value.disponivel === "sim");
 
 console.log(`Objetos com valor "sim" para a chave "disponivel": ${totalDisponivel.length};
-Quantidade total de itens em estoque que estão em disponiveis: ${itensEmEstoque} `);
+Quantidade total de itens em estoque que estão em "disponiveis": ${itensEmEstoque} `);
 // Item 4
 console.log("04.")
 let itensDisponiveisEEmDestaque = 0;
@@ -33,6 +36,7 @@ for(const item of listaProdutos){
 
 console.log(`Objetos com valor "sim" para as chaves "emDestaque" e "disponivel": ${totalEmDestaque.length};
 Quantidade total de itens em estoque que estão em destaque: ${itensDisponiveisEEmDestaque} `);
+// || dest = itensDisponiveisEEmDestaque
 
 
 // Item 5
@@ -134,9 +138,9 @@ let numeroTotalItens = listaProdutos.length;
 const ticketMedio = inventario / numeroTotalItens;
 console.log(`O valor do ticket médio é: ${convertToCurrency(ticketMedio)}`)
 
-
 // Item 11
-const removeDuplicates = (data, key) => [...new Map(data.map(item => [key(item), item])).values()];
+
+
 console.log("11. Somatória de itens por departamento");
 
 
@@ -152,26 +156,101 @@ listaProdutos.map((produto) => {
   })
 });
 
-console.log(removeDuplicates(listQtdPerDept, item => item.id));
+console.log("                             ")
+console.log("                             ")
+
+console.log("ENTREGAS DA SEGUNDA SEMANA(exercícios: do 11 ao 15)")
+console.log("                             ")
+console.log("                             ")
 
 
-// Item 12
-console.log("12. Valor total do inventário por departamento (similar ao item anterior");
 
-const sumPerPrice = (deptId) => listaProdutos.filter((produto) => produto.departamento.idDepto === deptId)
-.reduce((acumulator, currentValue) => acumulator + currentValue.preco, 0);
+console.log(`11.
+Somatória de itens por departamento:`)
 
-const listQtdPerPrice = [];
-listaProdutos.map((produto) => {  
-  listQtdPerPrice.push({
-    id: produto.departamento.idDepto,
-    name: produto.departamento.nomeDepto,
-    valor_inventario: sumPerPrice(produto.departamento.idDepto)
-  })
-});
+let deps = {}
 
-console.log(removeDuplicates(listQtdPerPrice, item => item.id));
+for (const prod of listaProdutos) {
+    if (deps[prod.departamento.nomeDepto] == undefined){
+        deps[prod.departamento.nomeDepto] = prod.qtdEstoque
+    } else {
+        deps[prod.departamento.nomeDepto] += prod.qtdEstoque
+
+    }
+
+    // console.log(prod)
+    
+}
+for (const departament in deps) {
+   console.log(departament, deps[departament])
+}
 
 
-// Item 13
-console.log("13. Ticket médio por departamento");
+console.log(`12.
+Valor total do inventário por departamento:`)
+
+let invt = {}
+
+
+for (const prod of listaProdutos) {
+    if (invt[prod.departamento.nomeDepto] == undefined){
+    invt[prod.departamento.nomeDepto] = prod.qtdEstoque * prod.preco
+    } else {
+        invt[prod.departamento.nomeDepto] += prod.qtdEstoque * prod.preco
+
+    }
+
+    
+}
+for (const departament in invt) {
+   console.log(departament, convertToCurrency(invt[departament]))
+}
+
+
+console.log(`13.
+Ticket médio por departamento: `)
+
+let ticketDep = {}
+let prods = {}
+
+
+for (const prod of listaProdutos) {
+
+    if (prods[prod.departamento.nomeDepto] == undefined) {
+        prods[prod.departamento.nomeDepto] = 1
+    } else {
+        prods[prod.departamento.nomeDepto] + 1
+
+    }
+}
+for (const departament in prods) { 
+    console.log(departament, convertToCurrency((invt[departament] / prods[departament])))
+}
+
+console.log("14.")
+
+let depValis = ""
+
+for (const departament in invt) {
+    if (!invt[depValis] || invt[depValis] < invt[departament]) {
+        depValis = departament
+    }
+ }
+
+ console.log("Departamento mais valioso é o de " + depValis)
+
+
+ console.log("15.")
+
+
+let depDisvalis = ""
+
+for (const departament in invt) {
+    if (!invt[depDisvalis] || invt[depDisvalis] > invt[departament]) {
+        depDisvalis = departament
+    }
+ }
+
+ console.log("Departamento menos valioso é o de " + depDisvalis)
+
+
